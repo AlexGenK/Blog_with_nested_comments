@@ -1,0 +1,10 @@
+<hr>
+<h1><%= @post.title %> </h2>
+<small>posted at <%= @post.created_at %> / updated at <%= @post.updated_at %></small>
+<p><%= simple_format(@post.body) %></p>
+<small>
+	<%= link_to "Show all posts", posts_path %> |
+	<%= link_to ">>> Edit", edit_post_path %> |
+	<%= link_to "Delete <<<", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+</small>
+<hr>

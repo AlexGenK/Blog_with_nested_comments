@@ -1,0 +1,10 @@
+<h1>List of posts</h1>
+<%= link_to ">>> Create new Post <<<", new_post_path %>
+<% @posts.each do |item| %>
+	<article>
+		<hr>
+		<h2><%= link_to item.title, post_path(item) %></h2>
+		<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
+		<p><%= simple_format(item.body) %></p>
+	</article>	
+<% end %>
