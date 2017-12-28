@@ -1,5 +1,5 @@
 <hr>
-<h1><%= @post.title %> </h2>
+<h1><%= @post.title %> </h1>
 <small>posted at <%= @post.created_at %> / updated at <%= @post.updated_at %></small>
 <p><%= simple_format(@post.body) %></p>
 <small>
@@ -8,3 +8,18 @@
 	<%= link_to "Delete <<<", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
 </small>
 <hr>
+<h2>Comments:</h2>
+<%= render(partial: 'comment', collection: @post.comments) %>
+<hr>
+<h2>Add comment:</h2>
+<%= form_for [@post, @post.comments.build] do |f| %>
+
+		<p>
+			<%= f.text_area :body %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+
+<% end %>
