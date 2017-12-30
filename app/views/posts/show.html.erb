@@ -12,14 +12,4 @@
 <%= render(partial: 'comment', collection: @post.comments) %>
 <hr>
 <h2>Add comment:</h2>
-<%= form_for [@post, @post.comments.build] do |f| %>
-
-		<p>
-			<%= f.text_area :body %>
-		</p>
-
-		<p>
-			<%= f.submit %>
-		</p>
-
-<% end %>
+<%= render(partial: 'comments/form', locals: { parent: @post, comment: @post.comments.build }) %>
