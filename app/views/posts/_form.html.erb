@@ -1,6 +1,15 @@
 <%= form_for post do |f| %>
 
 	<p>
+		<%= f.label :kind %><br>
+		<%= f.radio_button :kind, 'article', onClick: "javascript:kindCheck();" %>
+		<%= f.label :kind_article, 'Article' %>
+		<%= f.radio_button :kind, 'event', onClick: "javascript:kindCheck();" %>
+		<%= f.label :kind_event, 'Event' %>
+
+		<%= f.date_field :date %>	
+
+	<p>
 		<%= f.label :title %><br>
 		<%= f.text_field :title %>
 	</p>
@@ -15,3 +24,13 @@
 	</p>
 
 <% end %>
+
+<script type="text/javascript">
+function kindCheck() {
+    if (document.getElementById('post_kind_event').checked) {
+        document.getElementById('post_date').style.visibility = 'visible';
+    }
+    else document.getElementById('post_date').style.visibility = 'hidden';
+};
+window.onload = kindCheck();
+</script>
