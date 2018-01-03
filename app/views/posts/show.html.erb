@@ -4,14 +4,16 @@
 	<%= " start at: #{@post.date}" if @post.kind=='event' %>
 </h1>
 <small>posted at <%= @post.created_at %> / updated at <%= @post.updated_at %></small>
-<p><%= simple_format(@post.body) %></p>
-<small>
+<div><%= simple_format(@post.body) %></div>
+<div>
 	<%= link_to ">>> Edit", edit_post_path %> |
 	<%= link_to "Delete <<<", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
-</small>
+</div>
 <hr>
 <h2>Comments:</h2>
-<%= render(partial: 'comments/comment', collection: @post.comments) %>
+<ul class="comment_list">
+	<%= render(partial: 'comments/comment', collection: @post.comments) %>
+</ul>
 <hr>
 <h2>Add a comment:</h2>
 <%= render(partial: 'comments/form', locals: { parent: @post, comment: @post.comments.build }) %>

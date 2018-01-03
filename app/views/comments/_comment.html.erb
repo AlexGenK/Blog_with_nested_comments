@@ -1,11 +1,10 @@
-<div>
-  <%= comment.body %>
-</div>
-
-<p><%= link_to '>>> Add a Reply', new_comment_comment_path(comment) %></p>
-   
-<% unless comment.comments.empty? %>
-  <ul class="comment_list">
-    <%= render(partial: 'comments/comment', collection: comment.comments) %>
-  </ul>
-<% end %>
+<li class='comment'>
+	<small><%= comment.created_at %></small><br>
+	<%= comment.body %><br>
+	<%= link_to '>>> Add a reply', new_comment_comment_path(comment) %>
+	<% unless comment.comments.empty? %>
+		<ul class="comment_list">
+	 		<%= render(partial: 'comments/comment', collection: comment.comments) %>
+		</ul>
+	<% end %>
+</li>
