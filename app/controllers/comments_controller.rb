@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :get_parent
+  before_action :authenticate_user!
 
   def new
     @comment = @parent.comments.new
