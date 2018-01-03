@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   before_action :get_parent
 
   def new
-    @comment = @parent.comments.build
+    @comment = @parent.comments.new
   end
  
   def create
-    @comment = @parent.comments.build(comment_params)
+    @comment = @parent.comments.new(comment_params)
     if @comment.save
       redirect_to post_path(@comment.post)
     else

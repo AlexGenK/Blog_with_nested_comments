@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180102140138) do
     t.string "title"
     t.text "body"
     t.string "kind", default: "article"
-    t.date "date", default: "2018-01-02"
+    t.date "date"
     t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
