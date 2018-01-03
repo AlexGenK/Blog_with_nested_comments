@@ -1,27 +1,34 @@
 <%= form_for post do |f| %>
-
-	<p>
+	<% if post.errors.any? %>
+		<h3><%= pluralize(post.errors.count, "error") %></h3>
+		<ul>
+			<% post.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<div>
 		<%= f.label :kind %><br>
 		<%= f.radio_button :kind, 'article', onClick: "javascript:kindCheck();" %>
 		<%= f.label :kind_article, 'Article' %>
 		<%= f.radio_button :kind, 'event', onClick: "javascript:kindCheck();" %>
 		<%= f.label :kind_event, 'Event' %>
-
 		<%= f.date_field :date %>	
-
-	<p>
+	</div>
+	<br>
+	<div>
 		<%= f.label :title %><br>
 		<%= f.text_field :title %>
-	</p>
-
-	<p>
+	</div>
+	<br>
+	<div>
 		<%= f.label :body %><br>
 		<%= f.text_area :body %>
-	</p>
-
-	<p>
+	</div>
+	<br>
+	<div>
 		<%= f.submit %>
-	</p>
+	</div>
 
 <% end %>
 

@@ -6,6 +6,6 @@
    
 <% unless comment.comments.empty? %>
   <ul class="comment_list">
-    <%= render(partial: 'comment', collection: comment.comments) %>
+    <%= render(partial: 'comments/comment', collection: comment.comments) %>
   </ul>
 <% end %>

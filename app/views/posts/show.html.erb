@@ -9,7 +9,7 @@
 </small>
 <hr>
 <h2>Comments:</h2>
-<%= render(partial: 'comment', collection: @post.comments) %>
+<%= render(partial: 'comments/comment', collection: @post.comments) %>
 <hr>
 <h2>Add a comment:</h2>
 <%= render(partial: 'comments/form', locals: { parent: @post, comment: @post.comments.build }) %>
