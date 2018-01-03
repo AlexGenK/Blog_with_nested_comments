@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
  
   def create
     @comment = @parent.comments.new(comment_params)
-    if @comment.save
+    if @comment.save or @parent.class==Post
       redirect_to post_path(@comment.post)
     else
       render :new
