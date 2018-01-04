@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-
-  before do
-    @post=Post.create
-  end
+  subject { build(:comment) }
 
   it "is valid with valid attributes" do
-    expect(@post.comments.new).to be_valid
+    expect(subject).to be_valid
   end
 
+  it "is not valid without body" do
+    subject.body = nil
+    expect(subject).to_not be_valid
+  end
 end
