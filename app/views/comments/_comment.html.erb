@@ -1,5 +1,5 @@
 <li class='comment'>
-	<small><%= comment.created_at %></small><br>
+	<small>written by <%= comment.user %> at <%= comment.created_at %></small><br>
 	<%= comment.body %><br>
 	<%= link_to '>>> Add a reply', new_comment_comment_path(comment) %>
 	<% unless comment.comments.empty? %>

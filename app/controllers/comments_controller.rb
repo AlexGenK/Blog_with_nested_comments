@@ -8,10 +8,11 @@ class CommentsController < ApplicationController
  
   def create
     @comment = @parent.comments.new(comment_params)
+    @comment.user = current_user.email
     if @comment.save
       redirect_to post_path(@comment.post)
     else
-      render :new
+      render action: 'new'
     end
   end
  

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :require_permission, only: [:edit, :destroy]
   
   def index
     @posts=Post.order(created_at: :desc)
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post=Post.new(post_params)
+    @post.user = current_user.email
     if @post.save then
       redirect_to @post
     else
@@ -46,5 +48,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :kind, :date)
+  end
+
+  def require_permission
+    post = Post.find(params[:id])
+    if post.user != current_user.email
+      flash[:alert] = 'Only the user who created the post, can delete or edit it'
+      redirect_to post
+    end
   end
 end

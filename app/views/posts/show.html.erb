@@ -3,7 +3,7 @@
 	<%= @post.title %> 
 	<%= " start at: #{@post.date}" if @post.kind=='event' %>
 </h1>
-<small>posted at <%= @post.created_at %> / updated at <%= @post.updated_at %></small>
+<small>posted <%= @post.user %> at <%= @post.created_at %> <% if @post.created_at!=@post.updated_at %>/ updated at <%= @post.updated_at %><% end %></small>
 <div><%= simple_format(@post.body) %></div>
 <div>
 	<%= link_to ">>> Edit", edit_post_path %> |

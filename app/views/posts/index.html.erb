@@ -7,7 +7,7 @@
 			<%= link_to item.title, post_path(item) %>
 			<%= " start at: #{item.date}" if item.kind=='event' %>	
 		</h2>
-		<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
+		<small>posted <%= item.user %> at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
 		<p><%= simple_format(item.body.truncate(120)) %></p>
 	</article>	
 <% end %>
