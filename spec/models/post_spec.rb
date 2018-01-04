@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { build(:post) }
+  subject { build(:post_event) }
 
   it "is valid with valid attributes" do
     expect(subject).to be_valid
