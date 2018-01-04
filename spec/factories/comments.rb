@@ -6,7 +6,7 @@ FactoryBot.define do
   end
 
   factory :comment_for_comment, class: Comment do
-    body  "Aenean commodo ligula eget dolor."
+    body  "Sed ut perspiciatis unde omnis iste natus."
     user "user2@mail.no"
     association :commentable, factory: :comment_for_post
   end
