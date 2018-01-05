@@ -43,6 +43,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'validates_timeliness', '~> 4.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do

@@ -7,7 +7,7 @@ feature 'Access to posts', type: :feature do
     visit root_path
   end
 
-  context 'when logged out.' do
+  context 'when Visitor is logged out' do
     scenario 'Visitor is viewing posts index' do
       expect(page).to have_content 'List of posts'
       expect(page).to have_content @article.title
@@ -43,10 +43,14 @@ feature 'Access to posts', type: :feature do
       expect(page).to have_content 'You need to sign in or sign up before continuing'
     end
 
-    scenario 'Visitor can log In' do
+    scenario 'Visitor can Sign up' do
       click_link 'Log In'
       expect(page).to have_content 'Remember me'
+      click_link 'Sign up'
+      expect(page).to have_content 'Sign up'
     end
   end
 
+  context 'when Visitor is logged in' do
+  end
 end
