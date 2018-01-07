@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   describe "GET #index" do
     it "assigns array of posts to @posts" do
-       post = create(:post_article)
+       post = create(:article_from_user_one)
        get :index
        expect(assigns(:posts)).to eq([post])
     end
@@ -15,7 +15,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET #show" do
-    before { @post = create(:post_article) }
+    before { @post = create(:article_from_user_one) }
     it "assigns the requested post to @post" do
       get :show, params: { id: @post }
       expect(assigns(:post)).to eq(@post)
