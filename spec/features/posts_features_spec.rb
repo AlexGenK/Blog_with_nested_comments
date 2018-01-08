@@ -13,7 +13,7 @@ feature 'Access to posts', type: :feature do
       expect(page).to have_content 'List of posts'
       expect(page).to have_content @article.title
       expect(page).to have_content @event.title
-      expect(page).to have_selector('article', count: 2)
+      
     end
 
     scenario 'Visitor is viewing start date for event' do
