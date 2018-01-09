@@ -1,10 +1,4 @@
-<hr>
-<h1>
-	<%= @post.title %> 
-	<%= " start at: #{@post.date}" if @post.kind=='event' %>
-</h1>
-<small>posted <%= @post.user %> at <%= @post.created_at %> <% if @post.created_at!=@post.updated_at %>/ updated at <%= @post.updated_at %><% end %></small>
-<div><%= simple_format(@post.body) %></div>
+<%= render(partial: "post", object: @post, locals: { truncate_size: nil}) %>
 <div>
 	<%= link_to ">>> Edit", edit_post_path %> |
 	<%= link_to "Delete <<<", post_path, method: :delete, data: {confirm: "Are you sure?"} %>

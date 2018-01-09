@@ -1,13 +1,3 @@
 <h1>List of posts</h1>
 <%= link_to ">>> Create new post <<<", new_post_path %>
-<% @posts.each do |item| %>
-	<article>
-		<hr>
-		<h2>
-			<%= link_to item.title, post_path(item) %>
-			<%= " start at: #{item.date}" if item.kind=='event' %>	
-		</h2>
-		<small>posted <%= item.user %> at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
-		<p><%= simple_format(item.body.truncate(120)) %></p>
-	</article>	
-<% end %>
+<%= render(partial: "post", collection: @posts, locals: { truncate_size: 120}) %>
