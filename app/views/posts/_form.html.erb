@@ -7,7 +7,7 @@
 			<% end %>
 		</ul>
 	<% end %>
-	<div>
+	<div class='row'>
 		<%= f.radio_button :kind, 'article', onClick: "javascript:kindCheck();" %>
 		<%= f.label :kind_article, 'Article' %>
 		<%= f.radio_button :kind, 'event', onClick: "javascript:kindCheck();" %>
@@ -15,18 +15,18 @@
 		<%= f.date_field :date %>	
 	</div>
 	<br>
-	<div>
+	<div class='row'>
 		<%= f.label :title %><br>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class: 'col-sm-12' %>
 	</div>
 	<br>
-	<div>
+	<div class='row'>
 		<%= f.label :body %><br>
-		<%= f.text_area :body %>
+		<%= f.text_area :body, class: 'col-sm-12' %>
 	</div>
 	<br>
-	<div>
-		<%= f.submit %>
+	<div class='row'>
+		<%= f.submit class: 'btn btn-default' %>
 	</div>
 
 <% end %>

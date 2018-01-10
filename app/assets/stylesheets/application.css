@@ -15,3 +15,5 @@
  */
  
 .field_with_errors { display: inline; }
+
+body { padding-top: 70px; }

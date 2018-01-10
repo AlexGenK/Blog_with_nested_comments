@@ -8,11 +8,11 @@
 		</ul>
 	<% end %>
 
-	<div>
-		<%= f.text_area :body %>
+	<div class='row'>
+		<%= f.text_area :body, class: 'col-sm-12' %>
 	</div>
 	<br>
-	<div>
-		<%= f.submit %>
+	<div class='row'>
+		<%= f.submit class: 'btn btn-default' %>
 	</div>
 <% end %>

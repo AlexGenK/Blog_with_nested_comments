@@ -1,9 +1,9 @@
 <article>
-<hr>
-<h2>
-	<%= link_to post.title, post_path(post) %>
-	<%= " start at: #{post.date}" if post.kind=='event' %>	
-</h2>
-<small>posted <%= post.user %> at <%= post.created_at %> <% if post.created_at!=post.updated_at %>/ updated at <%= post.updated_at %><% end %></small>
-<p><%= simple_format(truncate_size ? post.body.truncate(truncate_size) : post.body) %></p>
+	<div class='row'>
+		<h3><%= link_to post.title, post_path(post) %>
+		<%= " start at: #{post.date}" if post.kind=='event' %></h3>
+		<small>posted <%= post.user %> at <%= post.created_at %> <% if post.created_at!=post.updated_at %>/ updated at <%= post.updated_at %><% end %></small>
+		<p><%= simple_format(truncate_size ? post.body.truncate(truncate_size) : post.body) %></p>
+		<hr>
+	</div>
 </article>

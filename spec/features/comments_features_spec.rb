@@ -11,7 +11,7 @@ feature 'Access to comments', type: :feature do
       expect(page).to have_content 'List of posts'
       click_link @comment.post.title
       expect(page).to have_content @comment.body
-      expect(page).to have_selector('li', count: 2)
+      expect(page).to have_css('.comment', count: 2)
     end
 
     scenario 'Visitor can not add comment for post' do
@@ -42,7 +42,7 @@ feature 'Access to comments', type: :feature do
       fill_in 'comment_body', with: "#{@comment.body} new"
       click_button 'Create Comment'
       expect(page).to have_content "#{@comment.body} new"
-      expect(page).to have_selector('li', count: 3)
+      expect(page).to have_css('.comment', count: 3)
     end
 
     scenario 'Visitor can not add comment for post with empty body' do
@@ -58,7 +58,7 @@ feature 'Access to comments', type: :feature do
       fill_in 'comment_body', with: "#{@comment.body} new"
       click_button 'Create Comment'
       expect(page).to have_content "#{@comment.body} new"
-      expect(page).to have_selector('li', count: 3)
+      expect(page).to have_css('.comment', count: 3)
     end
 
     scenario 'Visitor can not add comment for comment with empty body' do
