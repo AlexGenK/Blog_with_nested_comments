@@ -28,6 +28,20 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assign title, body and kind to the new contact"
+    before do 
+      @user = create(:user_one)
+      sign_in @user
+    end
+
+    it "assign a new instance of Post class with current date to @post" do
+      get :new
+      expect(assigns(:post).instance_of?(Post)).to be_truthy
+      expect(assigns(:post)[:date]).to eq(Time.now.to_date)
+    end
+
+    it "renders the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
   end
 end
