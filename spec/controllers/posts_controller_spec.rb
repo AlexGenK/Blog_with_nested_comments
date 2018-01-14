@@ -46,8 +46,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST #create" do
     before do 
-      @user = create(:user_one)
-      sign_in @user
+      sign_in create(:user_one)
     end
 
     context "with valid attributes" do
@@ -77,8 +76,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST #update" do
     before do 
-      @user = create(:user_one)
-      sign_in @user
+      sign_in create(:user_one)
       @post = create(:article_from_user_one)
     end
 
@@ -116,8 +114,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'DELETE #destroy' do
     before do 
-      @user = create(:user_one)
-      sign_in @user
+      sign_in create(:user_one)
       @post = create(:article_from_user_one)
     end
 
