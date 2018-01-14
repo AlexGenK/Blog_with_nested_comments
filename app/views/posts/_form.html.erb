@@ -1,11 +1,7 @@
 <%= form_for post do |f| %>
 	<% if post.errors.any? %>
-		<h3><%= pluralize(post.errors.count, "error") %></h3>
-		<ul>
-			<% post.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
+		<h3 class='row'><%= pluralize(post.errors.count, "error") %></h3>
+		<%= render(partial: 'layouts/alert', collection: post.errors.full_messages) %>
 	<% end %>
 	<div class='row'>
 		<%= f.radio_button :kind, 'article', onClick: "javascript:kindCheck();" %>

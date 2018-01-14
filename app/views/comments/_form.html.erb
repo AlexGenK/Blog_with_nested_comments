@@ -1,11 +1,7 @@
 <%= form_for [parent, comment] do |f| %>
 	<% if comment.errors.any? %>
-		<h3><%= pluralize(comment.errors.count, "error") %></h3>
-		<ul>
-			<% comment.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
+		<h3 class='row'><%= pluralize(comment.errors.count, "error") %></h3>
+		<%= render(partial: 'layouts/alert', collection: comment.errors.full_messages) %>
 	<% end %>
 
 	<div class='row'>
