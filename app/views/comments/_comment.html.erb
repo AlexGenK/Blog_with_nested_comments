@@ -1,7 +1,7 @@
 <li class='comment'>
 	<small>written by <%= comment.user %> at <%= comment.created_at %></small><br>
 	<%= comment.body %><br>
-	<%= link_to '>>> Add a reply', new_comment_comment_path(comment) %>
+	<%= link_to '>>> Add a reply', new_comment_comment_path(comment), class: 'btn btn-default btn-xs' %>
 	<% unless comment.comments.empty? %>
 		<ul class="comment_list">
 	 		<%= render(partial: 'comments/comment', collection: comment.comments) %>
