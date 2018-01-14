@@ -1,24 +1,9 @@
-# README
+# BLOG WITH NESTED COMMENTS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple blog on Ruby on Rails with authentication, based on devise gem, and nested comments, based on polymorphic associations.
 
-Things you may want to cover:
+Were used:
 
-* Ruby version
+* Ruby 2.3.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails 5.1.4
