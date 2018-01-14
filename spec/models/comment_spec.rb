@@ -12,7 +12,7 @@ RSpec.describe Comment, type: :model do
     expect(subject).to_not be_valid
   end
 
-  describe 'Comment#post' do
+  describe 'Comment #post' do
     it 'return parental post object' do
       expect(subject.post).to be_instance_of(Post)
     end

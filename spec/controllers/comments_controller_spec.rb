@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  describe "GET #new" do
-    before do 
+  before do 
       sign_in create(:user_one)
       @post = create(:article_from_user_one)
-    end
+  end
 
+  describe "GET #new" do
     it "assign a new instance of Comment class to @comment" do
       get :new, params: { post_id: @post.id }
       expect(assigns(:comment).instance_of?(Comment)).to be_truthy
@@ -19,11 +19,6 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe "POST #create" do
-    before do 
-      sign_in create(:user_one)
-      @post = create(:article_from_user_one)
-    end
-
     context "with valid attributes" do
       subject { post :create, params: { post_id: @post.id, comment: attributes_for(:comment_for_post) } }
 

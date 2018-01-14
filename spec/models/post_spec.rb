@@ -22,4 +22,11 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
+  describe 'Post #is_event?' do
+    it "is return 'true' when kind of post is event" do
+      expect(subject.is_event?).to be true
+      article=build(:article_from_user_one)
+      expect(article.is_event?).to be false
+    end
+  end
 end
