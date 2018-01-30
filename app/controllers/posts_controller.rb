@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(date: Time.now)
+    @post = Post.new
   end
 
   def create
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :kind, :date)
+    params.require(:post).permit(:title, :body)
   end
 
   def require_permission
