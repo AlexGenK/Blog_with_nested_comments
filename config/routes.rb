@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :events
+
+  resources :articles
    
   root to: 'posts#index'
 end
