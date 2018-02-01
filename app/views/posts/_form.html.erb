@@ -3,13 +3,7 @@
 		<h3 class='row'><%= pluralize(post.errors.count, "error") %></h3>
 		<%= render(partial: 'layouts/alert', collection: post.errors.full_messages) %>
 	<% end %>
-	<div class='row'>
-		<%= f.radio_button :kind, 'article', onClick: "javascript:kindCheck();" %>
-		<%= f.label :kind_article, 'Article' %>
-		<%= f.radio_button :kind, 'event', onClick: "javascript:kindCheck();" %>
-		<%= f.label :kind_event, 'Event' %>
-		<%= f.date_field :date %>	
-	</div>
+
 	<br>
 	<div class='row'>
 		<%= f.label :title %><br>
@@ -27,4 +21,5 @@
 
 <% end %>
 
+<!-- REMOVE THIS LATE!!! -->
 <script type="text/javascript">window.onload = kindCheck();</script>
